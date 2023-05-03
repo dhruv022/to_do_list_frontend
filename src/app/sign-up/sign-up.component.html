@@ -176,7 +176,9 @@
                             >
                               <div
                                 class="alert_font"
-                                [hidden]="!profileForm.controls.phoneNumber.errors"
+                                [hidden]="
+                                  !profileForm.controls.phoneNumber.errors
+                                "
                               >
                                 Phone number must contain minimum 10 numbers.
                               </div>
@@ -264,17 +266,9 @@
                             formControlName="roleId"
                             name="designation"
                           >
-                            <option name="roleId" value="2">
-                              Admin
-                            </option>
-                            <option name="roleId" value="3">
-                              Super Admin
-                            </option>
-                            <option
-                              name="roleId"
-                              value="1"
-                              [selected]="true"
-                            >
+                            <option name="roleId" value="2">Admin</option>
+                            <option name="roleId" value="3">Super Admin</option>
+                            <option name="roleId" value="1" [selected]="true">
                               Customer
                             </option>
                           </select>

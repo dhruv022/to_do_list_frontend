@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Frontend';
+  // passwordMatchingValidatior(fg: FormGroup): Validators{
+  //   return this.profileForm.get('password').value === this.profileForm.get('confirmPassword').value ? null : {notmatched: true};
+  // }
 }

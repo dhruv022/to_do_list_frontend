@@ -11,26 +11,34 @@
   >
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="d-flex collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav p-2">
-      <a class="nav-item nav-link" routerLink="/signup">Signup </a>
-      <a class="nav-item nav-link" routerLink="/logIn">Login</a>
+      <a class="nav-item nav-link" type="button" (click)="logout()">Logout</a>
+      <a class="nav-item nav-link" type="button" routerLink="/profile"
+        >Create user</a
+      >
+      <a class="nav-item nav-link" type="button" routerLink="/userDetail"
+        >My to-do-list</a
+      >
+      <a class="nav-item nav-link" type="button" routerLink="/alltodolist"
+        >All users todolist</a
+      >
     </div>
   </div>
 </nav>
-
-<div class="p-5">
-  <h1>DASHBOARD</h1>
-  <br />
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Description</th>
-        <th scope="col">Status</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+<div class="row">
+  <div class="col-lg-3 p-2" *ngFor="let tutorial of tutorials; let i = index">
+    <div class="card rounded shadow col-lg-3 p-2 m-3" style="width: 18rem">
+      <div class="card-body">
+        <H5 class="card-title"><b>Name:- </b>{{ tutorial.firstName }} {{tutorial.lastName}}</H5>
+        <p class="card-text"><b>Email:- </b>{{ tutorial.email }}</p>
+        <p class="card-text"><b>Phone Number:- </b>{{ tutorial.phoneNumber }}</p>
+        <p class="card-text"><b>Role:- </b>{{ tutorial.roleName }}</p>
+        <p class="card-text"><b>Created At:- </b>{{ tutorial.createdAt }}</p>
+        <p class="card-text"><b>Updated At:- </b>{{ tutorial.updatedAt }}</p>
+        <button class="btn btn-primary" (click)="deleteUser()">Delete User</button>
+      </div>
+      <br />
+    </div>
+  </div>
 </div>

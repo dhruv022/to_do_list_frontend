@@ -4,24 +4,23 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-  selector: 'app-dashboard-user',
-  templateUrl: './dashboard-user.component.html',
-  styleUrls: ['./dashboard-user.component.scss'],
+  selector: 'app-to-do-list-all',
+  templateUrl: './to-do-list-all.component.html',
+  styleUrls: ['./to-do-list-all.component.scss']
 })
-export class DashboardUserComponent implements OnInit {
-  tutorials: any;
-  currentIndex = -1;
-  ngOnInit() {
-    this.retrieveList();
-  }
+export class ToDoListAllComponent implements OnInit{
   constructor(
     private DataService: DataService,
     private router: Router,
     private spinner: NgxSpinnerService
   ) { }
-
+  ngOnInit() {
+    this.retrieveList();
+  }
+  tutorials: any;
+  currentIndex = -1;
   retrieveList() {
-    this.DataService.getAllUser().subscribe(
+    this.DataService.getAll().subscribe(
       (data) => {
         this.tutorials = data.data;
         console.log(data);
@@ -42,22 +41,5 @@ export class DashboardUserComponent implements OnInit {
       this.spinner.hide();
     }, 1000);
   }
-  deleteUser(){
-     this.spinner.show();
-     this.DataService.deleteUser().subscribe(
-      (data) => {
-        this.tutorials = data.data;
-        console.log(data);
-        console.log(this.tutorials);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-     setTimeout(() => {
-      /** spinner ends after 2 seconds */
-      this.spinner.hide();
-    }, 1000);
   }
-}
 

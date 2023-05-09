@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded-bottom">
+    <a class="navbar-brand p-2" href="#">To-Do-List</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="d-flex collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav p-2">
+        <a class="nav-item nav-link" type="button" (click)="logout()">Logout</a>
+        <a class="nav-item nav-link " routerLink="/todolist">Create List</a>
+        <a class="nav-item nav-link" type="button" routerLink="/dashboard"
+          >All users</a
+        >
+      </div>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col-lg-3 p-2" *ngFor="let tutorial of tutorials; let i = index">
+      <div class="card rounded shadow col-lg-3 p-2 m-3" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title"><b>Title:- </b>{{ tutorial.title }}</h5>
+          <p class="card-text"><b>Description:- </b>{{ tutorial.description }}</p>
+          <p class="card-text"><b>Status:- </b>{{ tutorial.status }}</p>
+          <button class="btn btn-primary">Delete</button>
+        </div>
+        <br />
+      </div>
+    </div>
+  
+    <!-- <li
+    class="list-group-item"
+    *ngFor="let tutorial of tutorials; let i = index"
+    [class.active]="i == currentIndex"
+  >
+    {{ tutorial.title }}
+  </li> -->
+  
+    <!-- 
+  <div class="p-5">
+    <h1>DASHBOARD</h1>
+    <br />
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div> -->
+  </div>
+  

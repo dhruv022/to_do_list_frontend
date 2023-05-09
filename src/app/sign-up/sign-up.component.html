@@ -78,7 +78,7 @@
                                   !profileForm.controls.firstName.errors
                                 "
                               >
-                                First name must be at least 3 characters long
+                                First name must be at least 3 characters longto
                                 and max 18 character long.
                               </p>
                             </div>
@@ -187,95 +187,6 @@
                         </div>
                       </div>
                     </div>
-                    <!-- 
-                    <div class="row">
-                      <div
-                      class="col-md-12 order-2 d-flex flex-row align-items-center mb-2"
-                    >
-                      <div
-                        class="form-outline flex-fill mb-0 p-md-2"
-                        formControlName="gender"
-                      >
-                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-0">
-                          <label class="form-label mx-2" for="Gender"
-                            ><b> Gender:</b></label
-                          >
-                          <div class="form-check form-check-inline mx-4">
-                            <input
-                              class="form-check-input"
-                              type="radio"
-                              name="gender"
-                              id="male"
-                              value="Male"
-                              [checked]="true"
-                            />
-                            <label class="form-check-label" for="male"
-                              >Male</label
-                            >
-                          </div>
-                          <div class="form-check form-check-inline mx-4">
-                            <input
-                              class="form-check-input"
-                              type="radio"
-                              name="gender"
-                              id="female"
-                              value="Female"
-                            />
-                            <label class="form-check-label" for="female"
-                              >Female</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
-
-                    <!-- <div class="col-md-6 order-2 d-flex flex-row align-items-center mb-2">
-                      
-                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="Gender"
-                        ><b> Gender:</b></label
-                      >
-                      <div class="form-outline flex-fill mb-0">
-                        <select
-                          class="form-control"
-                          name="gender"
-                          formControlName="gender"
-                        >
-                          <option name="Male" value="Male" selected>Male</option>
-                          <option name="Female" value="Female">Female</option>
-                        </select>
-                      </div>
-                    </div> -->
-                    <!-- </div>  -->
-
-                    <div
-                      class="col-md-12 order-2 d-flex flex-row align-items-center mb-2"
-                    >
-                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-
-                      <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="Designation"
-                          ><b> Designation:</b></label
-                        >
-                        <div class="form-outline flex-fill mb-0">
-                          <select
-                            class="form-control"
-                            id="designation"
-                            formControlName="roleId"
-                            name="designation"
-                          >
-                            <option name="roleId" value="2">Admin</option>
-                            <option name="roleId" value="3">Super Admin</option>
-                            <option name="roleId" value="1" [selected]="true">
-                              Customer
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
                     <div class="d-flex flex-row align-items-center mb-2">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
@@ -323,7 +234,7 @@
                           class="form-control"
                           required
                         />
-                        <!-- <div
+                        <div
                           *ngIf="
                             profileForm.controls.confirmPassword.errors &&
                             (profileForm.controls.confirmPassword.dirty ||
@@ -341,7 +252,7 @@
                             and length should be between 8 to 14 characters
                             long.
                           </div>
-                        </div> -->
+                        </div>
                       </div>
                     </div>
 
@@ -357,7 +268,14 @@
                       >
                         Register
                       </button>
+
+                      <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+                      
                     </div>
+                    <p>
+                      Already have a account
+                      <a class="link" routerLink="/logIn">Login</a>
+                    </p>
                   </form>
                 </div>
               </div>
@@ -368,3 +286,4 @@
     </div>
   </div>
 </div>
+

@@ -1,0 +1,125 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded-bottom">
+    <a class="navbar-brand p-2" href="#">To-Do-List</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="d-flex collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav p-2">
+        <a class="nav-item nav-link " routerLink="/userDetail">To-do List</a>
+        <a class="nav-item nav-link" type="button" routerLink="/dashboard"
+          >All users</a
+        >
+      </div>
+    </div>
+  </nav>
+  <div class="wraper text-black">
+    <div class="row">
+      <div class="col-lg-6">
+        <img
+          class="img m-5 rounded shadow"
+          src="https://wallpapercave.com/wp/wp7881177.jpg"
+        />
+      </div>
+      <div class="col-lg-6 p-3">
+        <form [formGroup]="todolist" (ngSubmit)="onSubmit()" class="p-5">
+          <div class="form-group">
+            <label for="title" name="title"><b>Title:- </b></label>
+            <input
+              class="form-control"
+              id="title"
+              formControlName="title"
+              placeholder="Enter title"
+              required
+            />
+            <div
+              *ngIf="
+              todolist.controls.title.errors &&
+                (todolist.controls.title.dirty ||
+                todolist.controls.title.touched)
+              "
+              class="bg-transparent"
+            >
+              <div class="alert_font" [hidden]="!todolist.controls.title.errors">
+                Please enter a title.
+              </div>
+            </div>
+            <div>
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="description"><b>Description</b></label>
+              <input
+                class="form-control"
+                id="description"
+                formControlName="description"
+                placeholder="description"
+                required
+              />
+            </div>
+            <div class="order-2  flex-row align-items-center mb-2">
+                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+
+                <div class="form-outline flex-fill mb-0">
+                  <label class="form-label" for="status"
+                    ><b> Status:</b></label
+                  >
+                  <div class="form-outline flex-fill mb-0">
+                  <select
+                    class="form-control"
+                    id="status"
+                    formControlName="status"
+                    name="status"
+                  >
+                    <option name="status" value="COMPLETE">Completed</option>
+                    <option name="status" value="INCOMPLETE" >
+                      In-complete
+                    </option>
+                   
+                    
+                  </select>
+                </div>
+                </div>
+              </div>
+
+            <br />
+            <ngx-spinner
+              bdColor="rgba(51,51,51,0.8)"
+              size="medium"
+              color="#fff"
+              type="ball-scale-multiple"
+            >
+              <p style="font-size: 20px; color: white">Loading...</p>
+            </ngx-spinner>
+            <button
+              type="submit"
+              id="button"
+              class="btn btn-primary"
+              [disabled]="!todolist.valid"
+            >
+              Create List
+            </button>
+  
+            &nbsp;
+            
+          </div>
+        </form>
+        <!-- <button
+              type="submit"
+              class="btn btn-primary"
+              routerLink="/signup"
+            >
+              Create Account
+            </button> -->
+      </div>
+    </div>
+  </div>
+  
+

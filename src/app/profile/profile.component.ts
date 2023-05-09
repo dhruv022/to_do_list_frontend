@@ -10,13 +10,11 @@ import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss'],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
-export class SignUpComponent {
-  
-
+export class ProfileComponent {
   profileForm = this.fb.group({
     firstName: [
       '',
@@ -33,6 +31,10 @@ export class SignUpComponent {
         Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
       ],
     ],
+    designation: [
+      '',
+      [Validators.required]
+    ],
     phoneNumber: [
       '',
       [Validators.required, Validators.minLength(10), Validators.maxLength(10)],
@@ -41,10 +43,7 @@ export class SignUpComponent {
       '',
       [Validators.required, Validators.pattern('^[a-zA-Z0-9!@#$%^&*]{8,16}$')],
     ],
-    confirmPassword: [
-      '',
-      [Validators.required, this.matchConfirmPassword.bind(this)],
-    ],
+   
   });
 
   matchConfirmPassword(control: AbstractControl): any {
@@ -71,6 +70,7 @@ export class SignUpComponent {
     const userForm = this.fb.group({
       firstName: [this.profileForm.get('firstName')!.value],
       lastName: [this.profileForm.get('lastName')!.value],
+      roleId:[this.profileForm.get('designation')!.value],
       email: [this.profileForm.get('email')!.value],
       phoneNumber: [this.profileForm.get('phoneNumber')!.value],
       password: [this.profileForm.get('password')!.value],

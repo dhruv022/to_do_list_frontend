@@ -29,7 +29,7 @@
     <div class="col-lg-6 p-3">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="p-5">
         <div class="form-group">
-          <label for="email"><b>Email address</b></label>
+          <label for="email" name="email"><b>Email address</b></label>
           <input
             class="form-control"
             id="email"
@@ -81,16 +81,36 @@
             </div>
           </div>
           <br />
+          <ngx-spinner
+            bdColor="rgba(51,51,51,0.8)"
+            size="medium"
+            color="#fff"
+            type="ball-scale-multiple"
+          >
+            <p style="font-size: 20px; color: white">Loading...</p>
+          </ngx-spinner>
           <button
             type="submit"
+            id="button"
             class="btn btn-primary"
             [disabled]="!loginForm.valid"
-            routerLink="/dashboard"
           >
             Login
           </button>
+
+          &nbsp;
+          <button id="button2" class="btn btn-primary" routerLink="/signup">
+            Create Account
+          </button>
         </div>
       </form>
+      <!-- <button
+            type="submit"
+            class="btn btn-primary"
+            routerLink="/signup"
+          >
+            Create Account
+          </button> -->
     </div>
   </div>
 </div>

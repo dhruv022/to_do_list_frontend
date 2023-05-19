@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Injectable({
+
+  
   providedIn: 'root',
 })
 export class MemberAuthGuard implements CanActivate {

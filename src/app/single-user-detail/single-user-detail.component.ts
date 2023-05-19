@@ -35,7 +35,7 @@ export class SingleUserDetailComponent implements OnInit {
 
   logout() {
     this.spinner.show();
-    this.router.navigate(['/logIn']);
+    this.router.navigate(['/']);
     localStorage.removeItem('token');
     localStorage.removeItem('Id');
     setTimeout(() => {

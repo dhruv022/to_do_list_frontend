@@ -1,40 +1,36 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded-bottom">
-    <a class="navbar-brand p-2" href="#">To-Do-List</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="d-flex collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav p-2">
-        <a class="nav-item nav-link" type="button" (click)="logout()">Logout</a>
-        <a class="nav-item nav-link " routerLink="/todolist">Create List</a>
-        <a class="nav-item nav-link" type="button" routerLink="/dashboard"
-          >All users</a
-        >
-      </div>
+  <a class="navbar-brand p-2" href="#">To-Do-List</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="d-flex collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav p-2">
+      <a class="nav-item nav-link" type="button" (click)="logout()">Logout</a>
+      <a class="nav-item nav-link" routerLink="/todolist">Create List</a>
+      <a class="nav-item nav-link" type="button" routerLink="/dashboard"
+        >All users</a
+      >
     </div>
-  </nav>
-  <div class="row">
-    <div class="col-lg-3 p-2" *ngFor="let tutorial of tutorials; let i = index">
-      <div class="card rounded shadow col-lg-3 p-2 m-3" style="width: 18rem">
-        <div class="card-body">
-          <h5 class="card-title"><b>Title:- </b>{{ tutorial.title }}</h5>
-          <p class="card-text"><b>Description:- </b>{{ tutorial.description }}</p>
-          <p class="card-text"><b>Status:- </b>{{ tutorial.status }}</p>
-          <a href="#" class="card-link">Edit</a>
-          <a href="#" class="card-link">Delete</a>
-        </div>
-        <br />
-      </div>
-    </div>
-  
-  
   </div>
-  
+</nav>
+<div class="row">
+  <div class="col-lg-3 p-2" *ngFor="let tutorial of tutorials; let i = index">
+    <div class="card rounded shadow col-lg-3 p-2 m-3" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title"><b>Title:- </b>{{ tutorial.title }}</h5>
+        <p class="card-text"><b>Description:- </b>{{ tutorial.description }}</p>
+        <p class="card-text"><b>Status:- </b>{{ tutorial.status }}</p>
+        <button class="btn btn-primary">Delete</button>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>

@@ -37,6 +37,7 @@ export class DashboardUserComponent implements OnInit {
     this.spinner.show();
     this.router.navigate(['/login']);
     localStorage.removeItem('token');
+    localStorage.removeItem('Id');
     setTimeout(() => {
       /** spinner ends after 2 seconds */
       this.spinner.hide();

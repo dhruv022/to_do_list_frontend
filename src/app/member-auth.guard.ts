@@ -3,6 +3,7 @@ import {
   ActivatedRouteSnapshot,
   CanActivate,
   RouterStateSnapshot,
+  Router,
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -12,7 +13,10 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class MemberAuthGuard implements CanActivate {
-  constructor(private authservice: AuthService) {}
+  constructor(
+    private authservice: AuthService,
+    private router : Router,
+    ) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -24,7 +28,7 @@ export class MemberAuthGuard implements CanActivate {
     if (this.authservice.MemberAuth) {
       return true;
     } else {
-      window.alert('You dont have access!!! Please connect to Administrator ');
+      this.router.navigate(['/'])
       return false;
     }
   }

@@ -35,11 +35,40 @@ export class SingleUserDetailComponent implements OnInit {
 
   logout() {
     this.spinner.show();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/logIn']);
     localStorage.removeItem('token');
+    localStorage.removeItem('Id');
     setTimeout(() => {
       /** spinner ends after 2 seconds */
       this.spinner.hide();
     }, 1000);
   }
+  
+  deleteList() {
+    this.spinner.show();
+    
+    if (this.tutorials && this.tutorials.length > 0) {
+      const userId = this.tutorials[0].id; 
+      this.DataService.deleteList(userId).subscribe(
+        (data) => {
+          // this.tutorials = data.data;
+          console.log(data);
+          console.log(this.tutorials);
+          this.tutorials = this.tutorials.filter((tutorial: any) => tutorial.id !== userId);
+        },
+        
+        (error) => {
+          console.log(error);
+        }
+      );
+    } else {
+      console.log('No tutorials data available');
+    }
+  
+    setTimeout(() => {
+      /** spinner ends after 2 seconds */
+      this.spinner.hide();
+    }, 2000);
+  }
+  
 }

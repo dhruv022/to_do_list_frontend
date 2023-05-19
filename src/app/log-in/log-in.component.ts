@@ -42,26 +42,31 @@ export class LogInComponent {
     this.userService.loginUser(logForm).subscribe(
       (response) => {
         console.log(response);
-        if (response.status == 200) {
+        if (response.status == "200") {
           localStorage.setItem('token', response.token);
           localStorage.setItem('Id', response.id);
           // this.router.navigate(['/dashboard']);
           this.router.navigate(['/userDetail']);
+          this.toastr.success('login Success');
+          console.log("inside if");
+          
         } 
-        else {
-          console.log("invalid credentials");
-          this.toastr.success('Invalid Credentials');
-        }
+        
         this.loginForm.reset();
       },
 
-      (error) => console.log(error)
+      (error) => {
+        console.log(error)
+        this.toastr.error('Invalid Credentials');
+      }
+
     );
+    
     this.loginForm.reset();
     setTimeout(() => {
       /** spinner ends after 2 seconds */
       this.spinner.hide();
-    }, 2000);
+    }, 3000);
   }
   //on submit if response having status 200 then redirect it to dashboard with router navigation.
 }

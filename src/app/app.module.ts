@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SingleUserDetailComponent } from './single-user-detail/single-user-detail.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { ToDoListAllComponent } from './to-do-list-all/to-do-list-all.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ToDoListAllComponent } from './to-do-list-all/to-do-list-all.component'
     SingleUserDetailComponent,
     ToDoListComponent,
     ToDoListAllComponent,
+    NotFoundComponent,
   ],
 
   imports: [
